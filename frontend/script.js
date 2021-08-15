@@ -27,7 +27,7 @@ const getNotes = () => {
     results.innerHTML = "";
     request("getNotes", "GET", (res) => {
         for(const note of res.notes) {
-            results.innerHTML += `<li>${note}</li>`;
+            results.innerHTML += `<li>${note.note}</li>`;
         }
     });
 };
