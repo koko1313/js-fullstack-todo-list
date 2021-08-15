@@ -22,12 +22,23 @@ const addNote = () => {
     });
 };
 
+const deleteNote = (id) => {
+    request("deleteNote", "POST", getNotes, {
+        id: id
+    });
+};
+
 const getNotes = () => {
     const notesList = document.getElementById("notesList");
     notesList.innerHTML = "";
     request("getNotes", "GET", (results) => {
         for(const result of results) {
-            notesList.innerHTML += `<li>${result.note}</li>`;
+            notesList.innerHTML += `
+                <li>
+                    ${result.note}
+                    <button onclick="deleteNote(${result.id})">Delete</button>
+                </li>
+            `;
         }
     });
 };

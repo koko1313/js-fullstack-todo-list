@@ -28,6 +28,11 @@ app.get("/getNotes", (req, res) => {
     });
 });
 
+app.post("/deleteNote", (req, res) => {
+    db.query(`DELETE FROM notes WHERE id = ${req.body.id}`);
+    res.send({});
+});
+
 // ##############################################################
 
 app.listen(port, () => {
