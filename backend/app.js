@@ -27,7 +27,7 @@ app.post("/addNote", (req, res) => {
 });
 
 app.get("/getNotes", (req, res) => {
-    db.query("SELECT * FROM notes", (error, results) => {
+    db.query("SELECT * FROM notes ORDER BY id ASC", (error, results) => {
         res.send(results);
     });
 });
