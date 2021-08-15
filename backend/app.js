@@ -28,7 +28,7 @@ app.post("/addNote", (req, res) => {
 
 app.get("/getNotes", (req, res) => {
     db.query("SELECT * FROM notes", (error, results) => {
-        res.send({ notes: results });
+        res.send(results);
     });
 });
 

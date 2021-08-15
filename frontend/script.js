@@ -23,11 +23,11 @@ const addNote = () => {
 };
 
 const getNotes = () => {
-    const results = document.getElementById("results");
-    results.innerHTML = "";
-    request("getNotes", "GET", (res) => {
-        for(const note of res.notes) {
-            results.innerHTML += `<li>${note.note}</li>`;
+    const notesList = document.getElementById("notesList");
+    notesList.innerHTML = "";
+    request("getNotes", "GET", (results) => {
+        for(const result of results) {
+            notesList.innerHTML += `<li>${result.note}</li>`;
         }
     });
 };
