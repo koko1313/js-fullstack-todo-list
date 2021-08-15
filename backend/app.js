@@ -17,10 +17,6 @@ const db = mysql.createConnection({
 
 // ##############################################################
 
-app.get("/", (req, res) => {
-    res.send({ message: "Hello World!" });
-});
-
 app.post("/addNote", (req, res) => {
     db.query(`INSERT INTO notes (note) VALUES ("${req.body.note}")`);
     res.send({});
